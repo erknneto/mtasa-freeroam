@@ -6,8 +6,8 @@
     <!-- CRÉDITOS e AVISOS
 		Autor: Erknneto
 		Versão: 1
-		GitHub: NÃO DISPONÍVEL
-		Steam: NÃO DISPONÍVEL
+		GitHub: github.com/Erknneto/mtasa-roleplay
+		Steam: steamcommunity.com/id/erknneto
 	<!-- CRÉDITOS e AVISOS -->
 	
 	<script src="player\ui\ui_c.lua" type="client" cache="false" />
