@@ -1,0 +1,45 @@
+<meta>
+    <info author="Erknneto" version="v1" name="Roleplay" description="A roleplay GM for MTA:SA" type="gamemode" />
+    
+    <download_priority_group>1</download_priority_group>
+    
+    <!-- CRÉDITOS e AVISOS
+		Autor: Erknneto
+		Versão: 1
+		GitHub: NÃO DISPONÍVEL
+		Steam: NÃO DISPONÍVEL
+	<!-- CRÉDITOS e AVISOS -->
+	
+	<script src="player\ui\ui_c.lua" type="client" cache="false" />
+	
+	<script src="player\status\default.lua" type="server" />
+	<script src="player\status\health.lua" type="server" />
+	<script src="player\status\money.lua" type="server" />
+	<script src="player\status\money_c.lua" type="client"  cache="false" />
+	<script src="player\status\standart.lua" type="server" />
+    
+	<script src="map\weather.lua" type="server" />
+	<script src="map\atm.lua" type="server" />
+	<script src="map\hospital.lua" type="server" />
+	<script src="map\ammunation.lua" type="server" />
+	<script src="map\ammunation_c.lua" type="client" cache="false" />
+	<script src="map\cityhall.lua" type="server" />
+	<script src="map\cityhall_c.lua" type="client" cache="false" />
+	<script src="map\market.lua" type="server" />
+	<script src="map\market_c.lua" type="client" cache="false" />
+	<script src="map\vehShop.lua" type="server" />
+	<script src="map\vehShop_c.lua" type="client" cache="false" />
+	<script src="map\vehicles.lua" type="server" />
+	
+	<script src="lobby\lobby_s.lua" type="server" />
+	<script src="lobby\lobby_c.lua" type="client" cache="false" />
+	
+	<script src="tools\useful_s.lua" type="server" />
+	<script src="tools\useful_c.lua" type="client" cache="false" />
+	
+    <script src="roleplay.lua" type="server" />
+	
+	<script src="fonts\fonts.lua" type="client" cache="false" />
+	<file src="fonts\ui.ttf" cache="false" />
+	
+</meta>

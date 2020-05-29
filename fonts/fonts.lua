@@ -1,0 +1,1 @@
+uiFont = dxCreateFont("fonts/ui.ttf",18)
