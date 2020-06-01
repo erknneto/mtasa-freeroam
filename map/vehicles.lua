@@ -12,6 +12,15 @@ for _,v in ipairs(getElementsByType("vehicle")) do
 	end
 end
 
+function rIsPlayerVehicleOnMap (ped)
+	if ( playerVehicles[ped] ) then
+		if ( isElement(playerVehicles[ped]) ) then
+			return true
+		end
+	end
+	return false
+end
+
 function rDestroyExplodedVehicles ()
 	if ( getElementData(source,"vehicle") ) then
 		if ( getElementData(source,"owner") ) then
@@ -22,6 +31,41 @@ function rDestroyExplodedVehicles ()
 	destroyElement(source)
 end
 addEventHandler("onVehicleExplode",getRootElement(),rDestroyExplodedVehicles)
+
+function rDestroyPlayerVehicleQuit ()
+	if ( playerVehicles[source] ) then
+		destroyElement(playerVehicles[source])
+		playerVehicles[source] = nil
+	end
+end
+addEventHandler("onPlayerQuit",getRootElement(),rDestroyPlayerVehicleQuit)
+
+function rDestroyPlayerVehicle (ped)
+	if ( ped ) then
+		if ( playerVehicles[ped] ) then
+			destroyElement(playerVehicles[ped])
+			playerVehicles[ped] = nil
+		end
+	end
+end
+
+function rUpdatePlayerVehicle (ped,vehicle)
+	if ( ped ) and ( vehicle ) then
+		if ( playerVehicles[ped] ) then
+			destroyElement(playerVehicles[ped])
+			playerVehicles[ped] = nil
+		end
+		playerVehicles[ped] = vehicle
+	end
+end
+
+function rFixPlayerVehicle (ped)
+	if ( ped ) then
+		if ( playerVehicles[ped] ) then
+			fixVehicle(playerVehicles[ped])
+		end
+	end
+end
 
 function rPVehicleEnter (player,seat,jacked)
 	if ( getElementData(player,"rConnected") ) then
