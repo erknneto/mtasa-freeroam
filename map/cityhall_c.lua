@@ -3,12 +3,10 @@ local cityhallServices = {
 {"Restaurante",25,"Faça uma refeição para não morrer de fome ou sede.","restaurant"},
 {"Médico",100,"Faça uma consulta com os médicos do estado para ver se está tudo bem.","medic"},
 {"Habilitação",2000,"Compre uma habilitação para usar os veículos do servidor.","license"},
-{"Limpar ficha criminal",1000,"Limpe sua ficha criminal para não ser mais perseguido pela polícia.","cleancriminalrecords"},
 {"Porte de armas",2500,"Tenha permissão para portar armas nas ruas da cidade.","allowweapons"},
 }
 
 local cityhallJobs = {
-{"Policial militar",1200,"Seja a força da lei! Prenda jogadores que estão sendo procurados no momento.\nSalário de $1200 por captura!","police"},
 {"Entregador de pizza",25,"Entregue pizzas pela cidade e ganhe $25 por entrega feita!","pizzaboy"},
 {"Entregador de mercadorias",25,"Entregue mercadorias pela cidade e ganhe $25 por entrega feita!","deliverboy"},
 }

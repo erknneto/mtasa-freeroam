@@ -54,8 +54,6 @@ function rHallServerServiceUse (service,price)
 				outputChatBox("Você agora pode usar todos os veículos disponíveis no servidor!",client,0,255,0)
 				setElementData(client,"driverlicense",true)
 				takePlayerMoney(client,price)
-			elseif ( service == "cleancriminalrecords" ) then
-				outputChatBox("Esse serviço ainda não está disponível!",client,255,0,0)
 			elseif ( service == "allowweapons" ) then
 				outputChatBox("Você agora pode portar armas pela cidade. Compre sua arma em uma ammu-nation!",client,0,255,0)
 				setElementData(client,"weaponlicense",true)
@@ -73,9 +71,7 @@ addEventHandler("rHallServerServiceUse",getRootElement(),rHallServerServiceUse)
 
 function rHallServerJobsWork (job,salary)
 	if ( job and salary ) then
-		if ( job == "police" ) then
-			outputChatBox("Esse trabalho ainda não está disponível!",client,255,0,0)
-		elseif ( job == "pizzaboy" ) then
+		if ( job == "pizzaboy" ) then
 			outputChatBox("Esse trabalho ainda não está disponível!",client,255,0,0)
 		elseif ( job == "deliverboy" ) then
 			outputChatBox("Esse trabalho ainda não está disponível!",client,255,0,0)
