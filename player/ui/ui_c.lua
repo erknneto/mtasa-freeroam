@@ -20,7 +20,7 @@ end
 addEventHandler("onClientRender",getRootElement(),rDrawDebugUI)
 
 function rDrawUI ()
-	if getElementData(localPlayer,"rDead") then return end
+	if ( getElementData(localPlayer,"rDead") ) then return end
 	if ( getElementData(localPlayer,"rConnected") ) then
 		setPlayerHudComponentVisible("ammo",false)
 		setPlayerHudComponentVisible("armour",false)
@@ -69,6 +69,34 @@ function rDrawUI ()
 	end
 end
 addEventHandler("onClientRender",getRootElement(),rDrawUI)
+
+function rDrawTags ()
+	if ( getElementData(localPlayer,"rDead") ) then return end
+	if ( getPedOccupiedVehicle(localPlayer) ) then return end
+	if ( getElementData(localPlayer,"rConnected") ) then
+		for _,ped in ipairs(getElementsByType("player")) do
+			setPlayerNametagShowing(ped,false)
+			if ( ped ~= localPlayer ) then
+				if ( getElementDimension(ped) == getElementDimension(localPlayer) ) then
+					local xHud,yHud,zHud = getElementPosition(localPlayer)
+					local pxHud,pyHud,pzHud = getElementPosition(ped)
+					local distanceHud = getDistanceBetweenPoints3D(xHud,yHud,zHud,pxHud,pyHud,pzHud)
+					local sxHud,syHud = getScreenFromWorldPosition(pxHud,pyHud,pzHud+0.95,0.06)
+					if ( sxHud and syHud ) then
+						text = "Player"
+						r,g,b = 0,127,255
+						rDistance = 5
+						if ( distanceHud <= rDistance ) then
+							dxDrawText(text, sxHud, syHud - 45, sxHud, syHud - 45, tocolor(r,g,b,255), 1.5, "arial", "center", "bottom", false, false, false )
+							dxDrawText(getPlayerName(ped), sxHud, syHud - 25, sxHud, syHud - 25, tocolor(255,255,255,255), 1.1, "clear", "center", "bottom", false, false, false )
+						end
+					end
+				end
+			end
+		end
+	end
+end
+addEventHandler("onClientRender",getRootElement(),rDrawTags)
 
 function rDrawDeadUI ()
 	if ( getElementData(localPlayer,"rConnected") ) then
