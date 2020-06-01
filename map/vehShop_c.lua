@@ -29,17 +29,6 @@ guiSetFont(rCarShopName, "sa-gothic")
 guiLabelSetHorizontalAlign(rCarShopName, "center", false)
 guiLabelSetVerticalAlign(rCarShopName, "center")
 
-rCarShopConfirmationWindow = guiCreateWindow((screenW - 339) / 2, (screenH - 157) / 2, 339, 157, "Você tem certeza?", false)
-guiWindowSetSizable(rCarShopConfirmationWindow, false)
-guiWindowSetMovable(rCarShopConfirmationWindow, false)
-guiSetAlpha(rCarShopConfirmationWindow, 1.00)
-guiSetVisible(rCarShopConfirmationWindow, false)
-rCarShopConfirmationText = guiCreateLabel(10, 23, 319, 49, "Ao comprar um veículo, você perderá seu atual!\nNão terá nenhuma garantia/reembolso!\nNão adianta chorar falando que perdeu!", false, rCarShopConfirmationWindow)
-guiSetFont(rCarShopConfirmationText, "clear-normal")
-guiLabelSetHorizontalAlign(rCarShopConfirmationText, "center", false)
-rCarShopConfirmationBYes = guiCreateButton(20, 80, 115, 61, "SIM", false, rCarShopConfirmationWindow)
-rCarShopConfirmationBNo = guiCreateButton(207, 80, 112, 61, "NÃO", false, rCarShopConfirmationWindow)
-
 function rCarShopOpen ()
 	if ( getElementData(localPlayer,"rConnected") ) then
 		local state = not(guiGetVisible(rCarShopWindow))
@@ -111,7 +100,7 @@ function rCarShopBuy ()
 	if ( title ) and ( title ~= nil ) and ( title ~= "" ) then
 		for _,v in ipairs(vehForSale) do
 			if ( title == v[1] ) then
-				outputChatBox("Você comprou "..v[1].." por $"..v[3].."!",0,255,0)
+				triggerServerEvent("rCarShopServerBuy",localPlayer,v[2],v[3])
 			end
 		end
 	else

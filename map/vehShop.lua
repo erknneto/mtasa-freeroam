@@ -42,6 +42,14 @@ function rCarShopLeave (player)
 end
 addEventHandler("onMarkerLeave",getRootElement(),rCarShopLeave)
 
+function rCarShopCloseManual (player)
+	showChat(player,true)
+	setPlayerHudComponentVisible(player,"all",true)
+	toggleAllControls(player,true)
+	setCameraTarget(player,player)
+	triggerClientEvent(player,"rCarShopClose",player)
+end
+
 function rCarShopResetCamera ()
 	showChat(client,true)
 	setPlayerHudComponentVisible(client,"all",true)
@@ -50,3 +58,27 @@ function rCarShopResetCamera ()
 end
 addEvent("rCarShopResetCamera",true)
 addEventHandler("rCarShopResetCamera",getRootElement(),rCarShopResetCamera)
+
+function rCarShopServerBuy (model,price)
+	if ( client ) and ( model ) and ( price ) then
+		if ( getPlayerMoney(client) >= price ) then
+			if ( getElementData(client,"driverlicense") ) then
+				if ( rIsPlayerVehicleOnMap(client) ) then
+					rDestroyPlayerVehicle(client)
+				end
+				setElementData(client,"vehicle",model)
+				takePlayerMoney(client,price)
+				rCarShopCloseManual(client)
+				outputChatBox("Você comprou o veículo "..getVehicleNameFromModel(model).." por $"..price.."!",client,0,255,0)
+				outputChatBox("Use o seu painel pessoal na tecla 'M' para interagir com o veículo!",client,0,255,0)
+				outputChatBox("O seu veículo pessoal antigo foi substituido por este novo!",client,0,255,0)
+			else
+				outputChatBox("Você precisa de uma habilitação para comprar um veículo, compre uma na prefeitura!",client,255,0,0)
+			end
+		else
+			outputChatBox("Você não possui dinheiro suficiente para comprar este veículo!",client,255,0,0)
+		end
+	end
+end
+addEvent("rCarShopServerBuy",true)
+addEventHandler("rCarShopServerBuy",getRootElement(),rCarShopServerBuy)
