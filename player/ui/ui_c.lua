@@ -6,7 +6,7 @@ function rDrawDebugUI ()
 	if getElementData(localPlayer,"rDead") then return end
 	if ( getElementData(localPlayer,"rConnected") ) then
 	
-		dxDrawText("Work in progress\nErk, 2019", x*0, y*0, x*1366, y*50, tocolor(255, 255, 255, 125), 1, "default", "center", "center", false, false, false, false, false)
+		dxDrawText("Work in progress\nErk, 2020", x*0, y*0, x*1366, y*50, tocolor(255, 255, 255, 125), 1, "default", "center", "center", false, false, false, false, false)
 		
 		dxDrawText("Vida: "..getElementHealth(localPlayer), x*0, y*0, x*0, y*0, tocolor(255, 255, 255, 150), 1, "default", "left", "top", false, false, false, false, false)
 		dxDrawText("Colete: "..getPedArmor(localPlayer), x*0, y*10, x*0, y*0, tocolor(255, 255, 255, 150), 1, "default", "left", "top", false, false, false, false, false)
