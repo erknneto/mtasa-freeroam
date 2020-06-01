@@ -49,3 +49,5 @@ function rLobbyClick (button,state)
 		end
 	end
 end
+
+rLobbyEnable()

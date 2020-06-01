@@ -45,7 +45,6 @@ function rJoin ()
 	setCameraTarget(source,source)
 	setCameraMatrix(source, -42.0,136.0,3.5, -42.0,132.0,3.1)
 	rSetAnim(source)
-	triggerClientEvent(source,"rLobbyEnable",source)
 end
 addEventHandler("onPlayerJoin",getRootElement(),rJoin)
 
