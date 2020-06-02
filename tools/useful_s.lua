@@ -14,3 +14,11 @@ function rKick (reason)
 end
 addEvent("rKick",true)
 addEventHandler("rKick",getRootElement(),rKick)
+
+function rPosition (source)
+	if ( getElementData(source,"rAdmin") ) then
+		local x,y,z = getElementPosition(source)
+		outputChatBox(x..","..y..","..z,source)
+	end
+end
+addCommandHandler("pos",rPosition)
