@@ -15,6 +15,9 @@
 	<script src="player\personal\personal_c.lua" type="client"  cache="false" />
 	<script src="player\personal\personal_s.lua" type="server" />
 	
+	<script src="player\works\trucker_c.lua" type="client"  cache="false" />
+	<script src="player\works\trucker_s.lua" type="server" />
+	
 	<script src="player\status\default.lua" type="server" />
 	<script src="player\status\health.lua" type="server" />
 	<script src="player\status\money.lua" type="server" />
