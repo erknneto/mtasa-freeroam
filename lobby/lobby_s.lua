@@ -32,6 +32,9 @@ function rAutoLogin ()
 		if ( isObjectInACLGroup("user."..accName,aclGetGroup("Admin")) ) then
 			setElementData(source,"rAdmin",true)
 		end
+		clearChatBox(source)
+		outputChatBox("Bem-vindo ao nosso servidor!",source,255,255,0)
+		outputChatBox("Aperte 'M' para abrir o seu painel pessoal.",source,255,255,0)
 	else
 		local accAdded = addAccount(username,password)
 		if ( accAdded ) then
@@ -42,6 +45,10 @@ function rAutoLogin ()
 			if ( isObjectInACLGroup("user."..accName,aclGetGroup("Admin")) ) then
 				setElementData(source,"rAdmin",true)
 			end
+			
+			clearChatBox(source)
+			outputChatBox("Bem-vindo ao nosso servidor!",source,255,255,0)
+			outputChatBox("Aperte 'M' para abrir o seu painel pessoal.",source,255,255,0)
 		else
 			kickPlayer(source,"Erro de conta!")
 		end
