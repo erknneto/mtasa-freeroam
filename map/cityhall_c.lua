@@ -7,8 +7,7 @@ local cityhallServices = {
 }
 
 local cityhallJobs = {
-{"Entregador de pizza",25,"Entregue pizzas pela cidade e ganhe $25 por entrega feita!","pizzaboy"},
-{"Entregador de mercadorias",25,"Entregue mercadorias pela cidade e ganhe $25 por entrega feita!","deliverboy"},
+{"Caminhoneiro",600,"Entregue cargas e ganhe dinheiro por cada entrega feita!","trucker"},
 }
 
 local screenW, screenH = guiGetScreenSize()
@@ -21,7 +20,7 @@ rHallMenuServices = guiCreateTab("Serviços", rHallMenu)
 rHallServicesTitle = guiCreateLabel(10, 10, 393, 15, "Selecione um serviço oferecido pela prefeitura:", false, rHallMenuServices)
 rHallServicesGrid = guiCreateGridList(10, 35, 191, 171, false, rHallMenuServices)
 rHallServicesGridColumn1 = guiGridListAddColumn(rHallServicesGrid, "Serviço", 0.65)
-rHallServicesGridColumn2 = guiGridListAddColumn(rHallServicesGrid, "Preço ($)", 0.2)
+rHallServicesGridColumn2 = guiGridListAddColumn(rHallServicesGrid, "$", 0.2)
 rHallBClose = guiCreateButton(340, 191, 63, 15, "Fechar", false, rHallMenuServices)
 rHallBServicesUse = guiCreateButton(211, 159, 119, 47, "Usar", false, rHallMenuServices)
 rHallServicesName = guiCreateLabel(211, 35, 182, 15, "", false, rHallMenuServices)
@@ -31,7 +30,8 @@ guiMemoSetReadOnly(rHallServicesDescription, true)
 rHallMenuJobs = guiCreateTab("Encontrar trabalho", rHallMenu)
 rHallJobsTitle = guiCreateLabel(10, 10, 393, 15, "Trabalhos disponíveis:", false, rHallMenuJobs)
 rHallJobsGrid = guiCreateGridList(10, 35, 196, 172, false, rHallMenuJobs)
-rHallJobsGridColumn1 = guiGridListAddColumn(rHallJobsGrid, "Trabalhos", 1)
+rHallJobsGridColumn1 = guiGridListAddColumn(rHallJobsGrid, "Trabalhos", 0.65)
+rHallJobsGridColumn2 = guiGridListAddColumn(rHallJobsGrid, "$", 0.2)
 rHallJobsName = guiCreateLabel(216, 35, 187, 15, "", false, rHallMenuJobs)
 rHallJobsDescription = guiCreateMemo(216, 54, 187, 111, "", false, rHallMenuJobs)
 guiMemoSetReadOnly(rHallJobsDescription, true)
@@ -72,6 +72,7 @@ function rHallRefresh ()
 	for _,v in ipairs(cityhallJobs) do
 		local row = guiGridListAddRow(rHallJobsGrid)
 		guiGridListSetItemText(rHallJobsGrid, row, 1, v[1], false, false)
+		guiGridListSetItemText(rHallJobsGrid, row, 2, "$"..v[2], false, false)
 	end
 end
 addEvent("rHallRefresh",true)

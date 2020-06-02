@@ -71,10 +71,10 @@ addEventHandler("rHallServerServiceUse",getRootElement(),rHallServerServiceUse)
 
 function rHallServerJobsWork (job,salary)
 	if ( job and salary ) then
-		if ( job == "pizzaboy" ) then
-			outputChatBox("Esse trabalho ainda não está disponível!",client,255,0,0)
-		elseif ( job == "deliverboy" ) then
-			outputChatBox("Esse trabalho ainda não está disponível!",client,255,0,0)
+		if ( job == "trucker" ) then
+			if not ( getElementData(client,"working") ) then
+				rTruckerStart(client,salary)
+			end
 		end
 	else
 		outputChatBox("Esse trabalho é inválido!",client,255,0,0)
