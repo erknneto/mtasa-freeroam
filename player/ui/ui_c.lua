@@ -2,8 +2,14 @@ local sx,sy = guiGetScreenSize()
 local px,py = 1366,768
 local x,y = (sx/px),(sy/py)
 
+showDebugUI = false
+bindKey("F5","down",function()
+	showDebugUI = not(showDebugUI)
+end)
 function rDrawDebugUI ()
-	if getElementData(localPlayer,"rDead") then return end
+	if not ( showDebugUI ) then return end
+	if not ( getElementData(localPlayer,"rAdmin") ) then return end
+	if ( getElementData(localPlayer,"rDead") ) then return end
 	if ( getElementData(localPlayer,"rConnected") ) then
 	
 		dxDrawText("Work in progress\nErk, 2020", x*0, y*0, x*1366, y*50, tocolor(255, 255, 255, 125), 1, "default", "center", "center", false, false, false, false, false)
