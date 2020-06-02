@@ -27,11 +27,21 @@ function rAutoLogin ()
 	if ( getAccount(username,password) ) then
 		local account = getAccount(username,password)
 		logIn(source,account,password)
+		
+		local accName = getAccountName(account)
+		if ( isObjectInACLGroup("user."..accName,aclGetGroup("Admin")) ) then
+			setElementData(source,"rAdmin",true)
+		end
 	else
 		local accAdded = addAccount(username,password)
 		if ( accAdded ) then
 			local account = getAccount(username,password)
 			logIn(source,account,password)
+			
+			local accName = getAccountName(account)
+			if ( isObjectInACLGroup("user."..accName,aclGetGroup("Admin")) ) then
+				setElementData(source,"rAdmin",true)
+			end
 		else
 			kickPlayer(source,"Erro de conta!")
 		end
