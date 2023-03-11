@@ -1,2 +1,2 @@
-# mtasa-freeroam
-A MTA:SA freeroam resource
+# MTA:SA Freeroam
+A MTA San Andreas freeroam resource
